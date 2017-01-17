@@ -44,7 +44,7 @@ class CommandController < ApplicationController
     end
 
     # Encode Query String
-    query = query.gsub!(/[^a-z ]/, '')
+    query = query.gsub(/[^0-9a-z ]/i, '')
 
     logger.info query
 
