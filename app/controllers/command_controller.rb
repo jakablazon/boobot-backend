@@ -46,8 +46,6 @@ class CommandController < ApplicationController
     # Encode Query String
     query = query.gsub(/[^0-9a-z ]/i, '')
 
-    logger.info query
-
     # Get Number Of Pages By Search Query
     doc = Nokogiri::HTML(open("http://anyfap.com/" + query))
     pages = doc.css('.page-btn')
