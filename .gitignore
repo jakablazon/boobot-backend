@@ -24,4 +24,4 @@
 .env
 
 # Ignore JetBrains
-.idea/
+.idea
