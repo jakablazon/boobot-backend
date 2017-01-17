@@ -16,13 +16,24 @@ class CommandController < ApplicationController
         'http://c2.nuttit.com/Cache/GetImage?id=Lj5tr6c.jpg',
         'http://c3.nuttit.com/Cache/GetImage?id=vso6IlX.png',
         'http://c1.nuttit.com/Cache/GetImage?id=5t4j2mU.png',
-        'http://c3.nuttit.com/Cache/GetImage?id=hbrIgcx.gif'
+        'http://c3.nuttit.com/Cache/GetImage?id=hbrIgcx.gif',
+        'http://c3.nuttit.com/Cache/GetImage?id=zfOecQe.png',
+        'http://c3.nuttit.com/Cache/GetImage?id=4PQIfmj.jpg',
+        'http://c1.nuttit.com/Cache/GetImage?id=6VVXqgN.png',
+        'http://c2.nuttit.com/Cache/GetImage?id=6yjvYXN.jpg',
+        'http://c2.nuttit.com/Cache/GetImage?id=Xbyv4dv.png',
+        'http://c3.nuttit.com/Cache/GetImage?id=ArtNpNS.jpg',
+        'http://c1.nuttit.com/Cache/GetImage?id=sb5Zhr2.jpg',
+        'http://c2.nuttit.com/Cache/GetImage?id=uDwbP8s.jpg',
+        'http://c3.nuttit.com/Cache/GetImage?id=4JOPCHS.jpg',
+        'http://c2.nuttit.com/Cache/GetImage?id=oEyh0xj.jpg'
     ]
 
     randomImage = nakedGirls.sample
 
     data = {
-        'attachments' => [
+        "response_type" => "in_channel",
+        "attachments" => [
             "color"=> "#36a64f",
             "pretext"=> "Desired image",
             "title"=> "Test",
