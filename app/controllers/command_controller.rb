@@ -64,33 +64,6 @@ class CommandController < ApplicationController
     }
 
     render :json => data
-
-    # Encode Query String
-    #query = query.gsub(/[^0-9a-z ]/i, '')
-
-    # Get Number Of Pages By Search Query
-    #doc = Nokogiri::HTML(open("http://anyfap.com/" + query))
-    #pages = doc.css('.page-btn')
-
-    # Get Random Page
-    #randomPage = rand(1..pages.length)
-
-    # Open On That Random Page
-    #doc = Nokogiri::HTML(open("http://anyfap.com/" + query + "?images=true&videos=false&order=relevance&page=" + randomPage.to_s))
-
-    # Get Number Of Results
-    #images = doc.css('.row .col-md-2')
-
-    # Get Random Image
-    #randomImage = rand(1..images.length)
-
-    # Get Random Image URL And Title
-    #mainImage = images.css('.thumb')[randomImage]['src']
-    #mainImageTitle = images.css('.title-grid p')[randomImage].text
-
-    #if mainImageTitle.empty? || mainImage.empty?
-      #abort("Shit hit the roof.")
-    #end
   end
 
 end
