@@ -36,6 +36,7 @@ gem 'rest-client'
 
 gem 'sass-rails'
 gem 'compass-rails'
+gem 'json'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
