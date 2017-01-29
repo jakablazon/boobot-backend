@@ -35,63 +35,62 @@ class CommandController < ApplicationController
         'spanking'''
     ]
 
-    if params[:text].present?
-      query = params[:text]
-      text = "You searched for `" + query + "`"
-    else
-      query = listOfRandomSearches.sample
-      text = "We searched `" + query + "` for you "
-    end
+    #if params[:text].present?
+      #query = params[:text]
+      #text = "You searched for `" + query + "`"
+    #else
+      #query = listOfRandomSearches.sample
+      #text = "We searched `" + query + "` for you "
+    #end
 
-    #offset = rand(Items.count)
+    offset = rand(Item.count)
+    randomRecord = Item.offset(offset).first
 
-    # Rails 4
-    #rand_record = Items.offset(offset).first
-#puts rand_record.inspect
-exit
-    # Encode Query String
-    query = query.gsub(/[^0-9a-z ]/i, '')
-
-    # Get Number Of Pages By Search Query
-    doc = Nokogiri::HTML(open("http://anyfap.com/" + query))
-    pages = doc.css('.page-btn')
-
-    # Get Random Page
-    randomPage = rand(1..pages.length)
-
-    # Open On That Random Page
-    doc = Nokogiri::HTML(open("http://anyfap.com/" + query + "?images=true&videos=false&order=relevance&page=" + randomPage.to_s))
-
-    # Get Number Of Results
-    images = doc.css('.row .col-md-2')
-
-    # Get Random Image
-    randomImage = rand(1..images.length)
-
-    # Get Random Image URL And Title
-    mainImage = images.css('.thumb')[randomImage]['src']
-    mainImageTitle = images.css('.title-grid p')[randomImage].text
-
-    if mainImageTitle.empty? || mainImage.empty?
-      abort("Shit hit the roof.")
-    end
+    text = "Grab 'em by the pussy!' - D. Trump"
 
     # Build Command Response
     data = {
         "response_type" => "in_channel",
         "attachments" => [
             "color"       => "#36a64f",
-            "pretext"     => "Here, relax your eyes for a while.",
-            "title"       => mainImageTitle,
-            "title_link"  => mainImage,
+            #"pretext"     => "Here, relax your eyes for a while.",
+            "title"       => "Here, relax your eyes for a while.",
+            "title_link"  => randomRecord.url,
             "text"        => text,
-            "image_url"   => mainImage,
-            "thumb_url"   => mainImage,
+            "image_url"   => randomRecord.url,
+            "thumb_url"   => randomRecord.url,
             "ts"          => DateTime.now.strftime('%s'),
         ]
     }
 
     render :json => data
+
+    # Encode Query String
+    #query = query.gsub(/[^0-9a-z ]/i, '')
+
+    # Get Number Of Pages By Search Query
+    #doc = Nokogiri::HTML(open("http://anyfap.com/" + query))
+    #pages = doc.css('.page-btn')
+
+    # Get Random Page
+    #randomPage = rand(1..pages.length)
+
+    # Open On That Random Page
+    #doc = Nokogiri::HTML(open("http://anyfap.com/" + query + "?images=true&videos=false&order=relevance&page=" + randomPage.to_s))
+
+    # Get Number Of Results
+    #images = doc.css('.row .col-md-2')
+
+    # Get Random Image
+    #randomImage = rand(1..images.length)
+
+    # Get Random Image URL And Title
+    #mainImage = images.css('.thumb')[randomImage]['src']
+    #mainImageTitle = images.css('.title-grid p')[randomImage].text
+
+    #if mainImageTitle.empty? || mainImage.empty?
+      #abort("Shit hit the roof.")
+    #end
   end
 
 end
