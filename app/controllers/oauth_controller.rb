@@ -14,7 +14,7 @@ class OauthController < ApplicationController
         redirect_uri:   request.base_url + redirect_path
     }
 
-    @data = JSON.parse accessToken
+    data = JSON.parse accessToken
 
     Team.create({
       access_token: data.access_token,
