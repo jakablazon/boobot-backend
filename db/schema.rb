@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20170128235908) do
     t.text     "access_token"
     t.text     "team_name"
     t.text     "channel"
+    t.text     "channel_id"
     t.text     "team_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false

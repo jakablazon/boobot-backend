@@ -16,14 +16,13 @@ class OauthController < ApplicationController
 
     @data = JSON.parse accessToken
 
-    #Team.create({
-    #  access_token: data.access_token,
-    #  teamId: data.team_id,
-    #  team_name: data.team_name,
-    #  channel: data.incoming_webhook.channel,
-    #  channelId: data.incoming_webhook.channel_id,
-
-    #})
+    Team.create({
+      access_token: data.access_token,
+      team_id: data.team_id,
+      team_name: data.team_name,
+      channel: data.incoming_webhook.channel,
+      channel_id: data.incoming_webhook.channel_id,
+    })
 
     render 'oauth/success'
   end
