@@ -7,15 +7,15 @@
 default: &default
   adapter: postgresql
   pool: 5
+  encoding: UTF8
   timeout: 5000
 
 development:
   <<: *default
   database: boobot
-  encoding: unicode
-  database: boobot
-  username: boobot
-  password: boobot
+  username: Blaz
+  password: unitedo
+  template: template0
   port: 5432
   host: localhost
 
@@ -24,8 +24,9 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: db/test.postgresql
+  database: boobot
+  host: localhost
 
 production:
   <<: *default
-  database: db/production.postgresql
+  database: boobot

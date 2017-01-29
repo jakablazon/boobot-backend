@@ -43,6 +43,12 @@ class CommandController < ApplicationController
       text = "We searched `" + query + "` for you "
     end
 
+    #offset = rand(Items.count)
+
+    # Rails 4
+    #rand_record = Items.offset(offset).first
+#puts rand_record.inspect
+exit
     # Encode Query String
     query = query.gsub(/[^0-9a-z ]/i, '')
 
