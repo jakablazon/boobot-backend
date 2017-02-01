@@ -65,9 +65,9 @@ class CommandController < ApplicationController
         "attachments" => [
             "color"       => "#36a64f",
             #"pretext"     => "Here, relax your eyes for a while.",
-            "title"       => title.sort_by {rand}.first,
+            "title"       => title[rand(title.count)],
             "title_link"  => randomUrl,
-            "text"        => text.sort_by { rand }.first,
+            "text"        => text[rand(text.count)],
             "image_url"   => randomUrl,
             "thumb_url"   => randomUrl,
             "ts"          => DateTime.now.strftime('%s'),
