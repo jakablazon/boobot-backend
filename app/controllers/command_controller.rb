@@ -52,8 +52,8 @@ class CommandController < ApplicationController
     ]
 
     title = [
-      "Here, relax your eyes for a while "
-      "Enjoy this little moment of yours"
+      "Here, relax your eyes for a while ",
+      "Enjoy this little moment of yours",
       "Let this picture make a better day for you"
     ]
 
