@@ -57,6 +57,8 @@ class CommandController < ApplicationController
       "Let this picture make a better day for you"
     ]
 
+    randomUrl = randomRecord.url
+
     # Build Command Response
     data = {
         "response_type" => "in_channel",
@@ -64,10 +66,10 @@ class CommandController < ApplicationController
             "color"       => "#36a64f",
             #"pretext"     => "Here, relax your eyes for a while.",
             "title"       => title.sort_by {rand}.first,
-            "title_link"  => randomRecord.url,
+            "title_link"  => randomUrl,
             "text"        => text.sort_by { rand }.first,
-            "image_url"   => randomRecord.url,
-            "thumb_url"   => randomRecord.url,
+            "image_url"   => randomUrl,
+            "thumb_url"   => randomUrl,
             "ts"          => DateTime.now.strftime('%s'),
         ]
     }
