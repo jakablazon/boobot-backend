@@ -46,9 +46,16 @@ class CommandController < ApplicationController
     offset = rand(Item.count)
     randomRecord = Item.offset(offset).first
 
-    text = ["Grab 'em by the pussy!' - D. Trump", "This pussy bites back"]
+    text = [
+      "Grab 'em by the pussy!' - D. Trump",
+      "This pussy bites back"
+    ]
 
-
+    title = [
+      "Here, relax your eyes for a while "
+      "Enjoy this little moment of yours"
+      "Let this picture make a better day for you"
+    ]
 
     # Build Command Response
     data = {
@@ -56,7 +63,7 @@ class CommandController < ApplicationController
         "attachments" => [
             "color"       => "#36a64f",
             #"pretext"     => "Here, relax your eyes for a while.",
-            "title"       => "Here, relax your eyes for a while.",
+            "title"       => title.sort_by {rand}.first,
             "title_link"  => randomRecord.url,
             "text"        => text.sort_by { rand }.first,
             "image_url"   => randomRecord.url,
